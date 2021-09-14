@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,14 @@ Route::get('/categoria/{categoria}/edit', [CategoriaController::class, 'edit'])-
 Route::patch('/categoria/{categoria}', [CategoriaController::class, 'update'])->name('categoria.update');
 Route::delete('/categoria/{categoria}', [CategoriaController::class, 'destroy'])->name('categoria.destroy');
 Route::get('/categoria/filtro', [CategoriaController::class, 'filtro'])->name('categoria.filtro');
+
+// Tag
+Route::get('/tag', [TagController::class, 'index'])->name('tag.index');
+Route::get('/tag/create', [TagController::class, 'create'])->name('tag.create');
+Route::post('/tag', [TagController::class, 'store'])->name('tag.store');
+Route::get('/tag/{tag}/edit', [TagController::class, 'edit'])->name('tag.edit');
+Route::patch('/tag/{tag}', [TagController::class, 'update'])->name('tag.update');
+Route::delete('/tag/{tag}', [TagController::class, 'destroy'])->name('tag.destroy');
+Route::get('/tag/filtro', [TagController::class, 'filtro'])->name('tag.filtro');
+
 
