@@ -1,0 +1,13 @@
+.header-dashboard {
+    height: 90px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--blue);
+    box-shadow: 0px 6px 6px #0000000A;
+}
+
+.header-dashboard img {
+    height: 80px;
+}
