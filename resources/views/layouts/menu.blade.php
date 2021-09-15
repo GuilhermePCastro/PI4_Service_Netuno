@@ -21,6 +21,9 @@
                 <li class="subnav__item">
                     <a class="item__link" href="{{ Route('tag.index') }}" >Tag</a>
                 </li>
+                <li class="subnav__item">
+                    <a class="item__link" href="{{ Route('marca.index') }}" >Marca</a>
+                </li>
             </ul>
         </li>
         <li class="nav__item hide-children">
