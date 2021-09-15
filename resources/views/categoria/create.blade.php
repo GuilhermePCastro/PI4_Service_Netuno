@@ -11,6 +11,8 @@
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
     <link href="{{ asset('css/register-client.css') }}" rel="stylesheet">
 
+    <script src="{{ asset('js/menu.js') }}"></script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Rhodium+Libre&display=swap"
       rel="stylesheet"

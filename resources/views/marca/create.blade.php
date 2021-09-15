@@ -11,6 +11,8 @@
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
     <link href="{{ asset('css/register-client.css') }}" rel="stylesheet">
 
+    <script src="{{ asset('js/menu.js') }}"></script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Rhodium+Libre&display=swap"
       rel="stylesheet"
@@ -34,8 +36,6 @@
               Nome da Marca*
               <input name="ds_marca" type="text" required/>
             </label>
-          </div>
-          <div class="inputs-group mb">
             <label class="input-container input-container-10">
               Filtrar
                 <select name="tg_filtro">
@@ -45,7 +45,7 @@
             </label>
           </div>
 
-          <button class="blue-button mr" type="submit">Salvar</button>
+          <button class="blue-button mr " type="submit">Salvar</button>
           <button class="white-button" type="reset">Limpar</button>
 
         </form>

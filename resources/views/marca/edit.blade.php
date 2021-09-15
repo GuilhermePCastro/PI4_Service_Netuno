@@ -37,10 +37,8 @@
               Nome da marca*
               <input name="ds_marca" type="text" value="{{ $marca->ds_marca }}" required/>
             </label>
-          </div>
-          <div class="inputs-group mb">
-          <label class="input-container input-container-10">
-              Filtrar
+            <label class="input-container input-container-10">
+                Filtrar
                 <select name="tg_filtro">
                     <option value="1" @if($marca->tg_filtro == 1) selected @endif>Sim</option>
                     <option value="0" @if($marca->tg_filtro == 0) selected @endif>Não</option>

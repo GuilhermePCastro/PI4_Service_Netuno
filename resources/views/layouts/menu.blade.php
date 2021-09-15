@@ -13,7 +13,7 @@
             </span>
             <ul class="item__subnav">
                 <li class="subnav__item">
-                    <a class="item__link" >Produtos</a>
+                    <a class="item__link" href="{{ Route('produto.index') }}">Produtos</a>
                 </li>
                 <li class="subnav__item">
                     <a class="item__link" href="{{ Route('categoria.index') }}">Categoria</a>
