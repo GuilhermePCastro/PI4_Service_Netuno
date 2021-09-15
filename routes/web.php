@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\MarcaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +39,12 @@ Route::patch('/tag/{tag}', [TagController::class, 'update'])->name('tag.update')
 Route::delete('/tag/{tag}', [TagController::class, 'destroy'])->name('tag.destroy');
 Route::get('/tag/filtro', [TagController::class, 'filtro'])->name('tag.filtro');
 
+//Marca
+Route::get('/marca', [MarcaController::class, 'index'])->name('marca.index');
+Route::get('/marca/create', [MarcaController::class, 'create'])->name('marca.create');
+Route::post('/marca', [MarcaController::class, 'store'])->name('marca.store');
+Route::get('/marca/{marca}/edit', [MarcaController::class, 'edit'])->name('marca.edit');
+Route::patch('/marca/{marca}', [MarcaController::class, 'update'])->name('marca.update');
+Route::delete('/marca/{marca}', [MarcaController::class, 'destroy'])->name('marca.destroy');
+Route::get('/marca/filtro', [MarcaController::class, 'filtro'])->name('marca.filtro');
 
