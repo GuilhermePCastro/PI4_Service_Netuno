@@ -38,6 +38,8 @@ Route::get('/tag/{tag}/edit', [TagController::class, 'edit'])->name('tag.edit');
 Route::patch('/tag/{tag}', [TagController::class, 'update'])->name('tag.update');
 Route::delete('/tag/{tag}', [TagController::class, 'destroy'])->name('tag.destroy');
 Route::get('/tag/filtro', [TagController::class, 'filtro'])->name('tag.filtro');
+Route::get('/lixeira/tag', [TagController::class, 'trash'])->name('tag.trash');
+Route::patch('/tag/restaura/{id}', [TagController::class, 'restore'])->name('tag.restore');
 
 //Marca
 Route::get('/marca', [MarcaController::class, 'index'])->name('marca.index');

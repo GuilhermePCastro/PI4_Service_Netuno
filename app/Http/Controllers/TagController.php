@@ -77,7 +77,12 @@ class TagController extends Controller
             $tags = $tags->where('id','=', $request->codigo );
         }
 
+        if($request->filtro != ''){
+            $tags = $tags->where('tg_filtro','=', $request->filtro );
+        }
+
         return view('tag.index')->with(['tag' => $tags->paginate(5)]);
     }
+
 
 }
