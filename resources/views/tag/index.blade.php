@@ -73,7 +73,7 @@
         @foreach($tag as $t)
             <tr>
                 <td>{{ $t-> id }}</td>
-                <td>{{ $t-> tag_nome }}</td>
+                <td>{{ $t-> ds_nome }}</td>
                 <td>
 
                     <a href="{{ route('tag.edit', $t->id) }}" >

@@ -19,7 +19,7 @@
                     <a class="item__link" href="{{ Route('categoria.index') }}">Categoria</a>
                 </li>
                 <li class="subnav__item">
-                    <a class="item__link" >Tag</a>
+                    <a class="item__link" href="{{ Route('tag.index') }}" >Tag</a>
                 </li>
             </ul>
         </li>

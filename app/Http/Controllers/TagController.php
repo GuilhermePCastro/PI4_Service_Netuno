@@ -70,7 +70,7 @@ class TagController extends Controller
         $tags = Tag::where('id', '>', '0');
 
         if($request->nome != ''){
-            $tags = $tags->where('tag_nome','like', '%' . $request->nome . '%');
+            $tags = $tags->where('ds_nome','like', '%' . $request->nome . '%');
         }
 
         if($request->codigo != ''){

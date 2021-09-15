@@ -32,7 +32,14 @@
           <div class="inputs-group mb">
             <label class="input-container input-container-80">
               Nome da tag*
-              <input name="tag_nome" type="text" required/>
+              <input name="ds_nome" type="text" required/>
+            </label>
+            <label class="input-container input-container-10" >
+                Filtrar
+                <select name="tg_filtro">
+                    <option value="1">Sim</option>
+                    <option value="0">Não</option>
+                </select>
             </label>
           </div>
 
