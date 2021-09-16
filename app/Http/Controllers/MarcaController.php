@@ -14,7 +14,7 @@ class MarcaController extends Controller
      */
     public function index()
     {
-        return view('marca.index')->with('marca', Marca::paginate(5));
+        return view('marca.index')->with('marca', Marca::paginate(10));
     }
 
     /**
@@ -116,7 +116,7 @@ class MarcaController extends Controller
             $marcas = $marcas->where('tg_filtro','=', $request->filtro );
         }
 
-        return view('marca.index')->with(['marca' => $marcas->paginate(5)]);
+        return view('marca.index')->with(['marca' => $marcas->paginate(10)]);
 
     }
 }

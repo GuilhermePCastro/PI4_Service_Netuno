@@ -63,35 +63,48 @@
               Tag*
                 <select class="input-mult" name="tags[]" multiple>
                         @foreach ($tags as $tag )
-                            <option value="{{$tag->id}}">{{$tag->tag_nome}}</option>
+                            <option value="{{$tag->id}}">{{$tag->ds_nome}}</option>
                         @endforeach
                 </select>
             </label>
           </div>
 
           <div class="inputs-group">
-            <label class="input-container input-container-25">
+            <label class="input-container input-container-20">
               Preço venda*
               <input min='0' step=".01" name="vl_produto" type="number" required/>
             </label>
-            <label class="input-container input-container-25">
-              Estoque mínimo
-              <input min='0' name="qt_estoquemin" type="number" />
-            </label>
-            <label class="input-container input-container-25">
-              Estoque máximo
-              <input min='0' name="qt_estoquemax" type="number" />
-            </label>
-            <label class="input-container input-container-25">
-              Estoque atual
+            <label class="input-container input-container-20">
+              Estoque atual*
               <input min='0' name="qt_estoque" type="number" />
             </label>
+            <label class="input-container input-container-20">
+              Peso*
+              <input  name="ds_peso" type="text" />
+            </label>
+            <label class="input-container input-container-10">
+              Destacar
+                <select name="tg_destaque">
+                    <option value="1">Sim</option>
+                    <option value="0">Não</option>
+                </select>
+            </label>
           </div>
-            <label class="input-container input-container">
+          <div class="inputs-group">
+            <label class="input-container input-container-30">
+              Dimensões*
+              <input name="ds_dimensoes" type="text" required/>
+            </label>
+            <label class="input-container input-container-50">
+              Material*
+              <input name="ds_material" type="text" required/>
+            </label>
+          </div>
+            <label class="input-container input-container mb">
               Foto Principal
               <input type="file" name='ds_foto'/>
             </label>
-            <label class="input-container">
+            <label class="input-container mb">
                 Descrição
                 <textarea name="ds_descricao" id="" cols="30" rows="10"></textarea>
             </label>

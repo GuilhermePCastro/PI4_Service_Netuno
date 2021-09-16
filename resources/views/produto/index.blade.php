@@ -86,7 +86,7 @@
         </tr>
         @foreach($produtos as $produto)
             <tr>
-                <td><img src="{{ asset($produto ->hx_foto1) }}" onclick="window.location.href = '{{ route('produto.show', $produto -> id) }}'"></td>
+                <td><img src="{{ asset($produto ->ds_foto) }}"></td>
                 <td>{{ $produto -> id }}</td>
                 <td>{{ $produto -> ds_nome }}</td>
                 <td>{{ number_format($produto -> vl_produto, 2, ',', '.') }}</td>

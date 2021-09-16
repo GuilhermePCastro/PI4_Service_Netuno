@@ -10,7 +10,7 @@ class CategoriaController extends Controller
 
     public function index()
     {
-        return view('categoria.index')->with('categoria', Categoria::paginate(5));
+        return view('categoria.index')->with('categoria', Categoria::paginate(10));
     }
 
     public function create()
@@ -73,7 +73,7 @@ class CategoriaController extends Controller
             $categories = $categories->where('id','=', $request->codigo );
         }
 
-        return view('categoria.index')->with(['categoria' => $categories->paginate(5)]);
+        return view('categoria.index')->with(['categoria' => $categories->paginate(10)]);
 
     }
 
