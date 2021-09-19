@@ -64,7 +64,7 @@
         </label>
         <label class="input-container input-container-30">
           Categoria
-          <select name="category_id" id="category_id">
+          <select name="categoria_id" id="categoria_id">
                 <option value=""></option>
                 @foreach ($categories as $categoria )
                     <option value="{{$categoria->id}}">{{$categoria->ds_categoria}}</option>
@@ -81,6 +81,7 @@
           <th></th>
           <th>Cód.</th>
           <th>Nome</th>
+          <th>Categoria</th>
           <th>Preço</th>
           <th>Ação</th>
         </tr>
@@ -89,6 +90,7 @@
                 <td><img src="{{ asset($produto ->ds_foto) }}"></td>
                 <td>{{ $produto -> id }}</td>
                 <td>{{ $produto -> ds_nome }}</td>
+                <td>{{ $produto->categoria->ds_categoria }}</td>
                 <td>{{ number_format($produto -> vl_produto, 2, ',', '.') }}</td>
                 <td>
 
