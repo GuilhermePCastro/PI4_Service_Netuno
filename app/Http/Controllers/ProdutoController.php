@@ -26,10 +26,10 @@ class ProdutoController extends Controller
     {
         //Ajustando as imagens do produto
         if($request->ds_foto){
-            $foto1 = $request->file('ds_foto')->store('produtos');
-            $foto1 = "storage/" . $foto1;
-            dd($foto1);
 
+            $foto1 = $request->file('ds_foto')->store('produto');
+
+            $foto1 = "storage/" . $foto1;
         }else{
             $foto1 = "storage/sem.jpg";
         }
@@ -72,6 +72,7 @@ class ProdutoController extends Controller
         //Ajustando as imagens do produto
         if($request->ds_foto){
             $foto1 = "storage/" . $request->file('ds_foto')->store('produtos');
+
             //Só apaga se não for a padrão
             if($produto->ds_foto != "storage/sem.jpg"){
                 Storage::delete(str_replace('storage/','',$produto->ds_foto));
