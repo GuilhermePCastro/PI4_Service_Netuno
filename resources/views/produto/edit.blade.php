@@ -83,7 +83,7 @@
               Estoque atual*
               <input min='0' name="qt_estoque" type="number" value="{{ $produto->qt_estoque }}"/>
             </label>
-            <label class="input-container input-container-20">
+            <label class="input-container input-container-30">
               Peso*
               <input  name="ds_peso" type="text" value="{{ $produto->ds_peso }}"/>
             </label>
@@ -97,11 +97,11 @@
           </div>
 
           <div class="inputs-group">
-            <label class="input-container input-container-30">
+            <label class="input-container input-container-40">
               Dimensões*
               <input name="ds_dimensoes" type="text" value="{{ $produto->ds_dimensoes }}"required/>
             </label>
-            <label class="input-container input-container-50">
+            <label class="input-container input-container-40">
               Material*
               <input name="ds_material" type="text" value="{{ $produto->ds_material }}" required/>
             </label>

@@ -78,7 +78,7 @@
               Estoque atual*
               <input min='0' name="qt_estoque" type="number" />
             </label>
-            <label class="input-container input-container-20">
+            <label class="input-container input-container-30">
               Peso*
               <input  name="ds_peso" type="text" />
             </label>
@@ -91,11 +91,11 @@
             </label>
           </div>
           <div class="inputs-group">
-            <label class="input-container input-container-30">
+            <label class="input-container input-container-40">
               Dimensões*
               <input name="ds_dimensoes" type="text" required/>
             </label>
-            <label class="input-container input-container-50">
+            <label class="input-container input-container-40">
               Material*
               <input name="ds_material" type="text" required/>
             </label>
