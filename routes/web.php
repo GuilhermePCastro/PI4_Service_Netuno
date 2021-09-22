@@ -39,6 +39,8 @@ Route::get('/categoria/{categoria}/edit', [CategoriaController::class, 'edit'])-
 Route::patch('/categoria/{categoria}', [CategoriaController::class, 'update'])->name('categoria.update');
 Route::delete('/categoria/{categoria}', [CategoriaController::class, 'destroy'])->name('categoria.destroy');
 Route::get('/categoria/filtro', [CategoriaController::class, 'filtro'])->name('categoria.filtro');
+Route::get('/lixeira/categoria', [CategoriaController::class, 'trash'])->name('categoria.trash');
+Route::patch('/categoria/restaura/{id}', [CategoriaController::class, 'restore'])->name('categoria.restore');
 
 // Tag
 Route::get('/tag', [TagController::class, 'index'])->name('tag.index');
@@ -59,4 +61,6 @@ Route::get('/marca/{marca}/edit', [MarcaController::class, 'edit'])->name('marca
 Route::patch('/marca/{marca}', [MarcaController::class, 'update'])->name('marca.update');
 Route::delete('/marca/{marca}', [MarcaController::class, 'destroy'])->name('marca.destroy');
 Route::get('/marca/filtro', [MarcaController::class, 'filtro'])->name('marca.filtro');
+Route::get('/lixeira/marca', [MarcaController::class, 'trash'])->name('marca.trash');
+Route::patch('/marca/restaura/{id}', [MarcaController::class, 'restore'])->name('marca.restore');
 

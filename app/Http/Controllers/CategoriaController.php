@@ -61,6 +61,21 @@ class CategoriaController extends Controller
         return redirect(route('categoria.index'));
     }
 
+    public function trash()
+    {
+        return view('categoria.trash')->with(['categoria'=>Categoria::onlyTrashed()->get()]);
+    }
+
+    public function restore($id)
+    {
+        $categoria = Categoria::onlyTrashed()->where('id', $id)->firstOrFail();
+        $categoria->restore();
+
+        session() -> flash('valido', "categoria $categoria->id foi restaurado com sucesso!");
+        return redirect(route('categoria.trash'));
+
+    }
+
     public function filtro(Request $request){
 
         $categories = Categoria::where('id', '>', '0');

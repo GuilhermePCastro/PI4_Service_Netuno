@@ -57,6 +57,12 @@ class TagController extends Controller
         return redirect(route('tag.index'));
     }
 
+
+    public function trash()
+    {
+        return view('tag.trash')->with(['tag'=>Tag::onlyTrashed()->get()]);
+    }
+
     public function restore($id)
     {
         $tag = Tag::onlyTrashed()->where('id', $id)->firstOrFail();
