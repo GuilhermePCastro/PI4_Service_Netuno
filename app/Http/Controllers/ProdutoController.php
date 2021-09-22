@@ -16,6 +16,7 @@ class ProdutoController extends Controller
     {
         return view('produto.index')->with(['produtos'=>Produto::paginate(10) ,'categories'=>Categoria::all()]);
     }
+    
 
     public function create()
     {
