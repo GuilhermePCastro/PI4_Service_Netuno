@@ -86,5 +86,4 @@ class TagController extends Controller
         return view('tag.index')->with(['tag' => $tags->paginate(5)]);
     }
 
-
 }
