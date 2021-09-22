@@ -10,7 +10,7 @@ class TagController extends Controller
 
     public function index()
     {
-        return view('tag.index')->with('tag' , Tag::paginate(5));
+        return view('tag.index')->with('tag' , Tag::paginate(10));
     }
 
     public function create()
@@ -83,7 +83,7 @@ class TagController extends Controller
             $tags = $tags->where('tg_filtro','=', $request->filtro );
         }
 
-        return view('tag.index')->with(['tag' => $tags->paginate(5)]);
+        return view('tag.index')->with(['tag' => $tags->paginate(10)]);
     }
 
 }

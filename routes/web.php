@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\MarcaController;
@@ -20,6 +21,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+// Produto
+Route::get('/produto', [ProdutoController::class, 'index'])->name('produto.index');
+Route::get('/produto/create', [ProdutoController::class, 'create'])->name('produto.create');
+Route::post('/produto', [ProdutoController::class, 'store'])->name('produto.store');
+Route::get('/produto/{produto}/edit', [ProdutoController::class, 'edit'])->name('produto.edit');
+Route::patch('/produto/{produto}', [ProdutoController::class, 'update'])->name('produto.update');
+Route::delete('/produto/{produto}', [ProdutoController::class, 'destroy'])->name('produto.destroy');
+Route::get('/produto/filtro', [ProdutoController::class, 'filtro'])->name('produto.filtro');
 
 // Categoria
 Route::get('/categoria', [CategoriaController::class, 'index'])->name('categoria.index');
