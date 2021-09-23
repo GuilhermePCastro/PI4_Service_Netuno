@@ -26,7 +26,7 @@
     @include('layouts.menu')
     <section class="main__page-content right-container">
       <div class="page-content__title">
-        <h1 class="title__text">Categoria</h1>
+        <h1 class="title__text">Lixeira - Categoria</h1>
         <a href="{{ Route('categoria.create') }}">
           <button type="button" class="title__include">
             Incluir Registro
@@ -48,29 +48,6 @@
             </div>
         @endif
 
-      <form class="page-content__inputs inputs-group">
-        <label class="input-container input-container-10">
-          Código
-          <input name="codigo" type="text" class="input-container__input">
-        </label>
-        <label class="input-container input-container-40">
-          Nome
-          <input name="nome" type="text" class="input-container__input">
-        </label>
-        <label class="input-container input-container-30">
-          categoria
-          <select name="categoria" id="" required>
-            <option value="0"></option>
-            <option value="1">Boneco</option>
-            <option value="2">Carro</option>
-          </select>
-        </label>
-        <button type="submit" class="inputs__search">
-
-          Buscar
-        </button>
-      </form>
-
       <table class="page-content__table"  border="0" cellpadding="0" cellspacing="0">
         <tr align="center">
           <th>Cód.</th>
@@ -81,21 +58,14 @@
         @foreach($categoria as $cat)
             <tr>
                 <td>{{ $cat-> id }}</td>
-                <td>{{ $cat-> cate_nome }}</td>
-                <td>{{ $cat-> cate_descricao }}</td>
+                <td>{{ $cat-> ds_categoria }}</td>
+                <td>{{ $cat-> ds_descricao }}</td>
                 <td>
-
-                    <a href="{{ route('categoria.edit', $cat->id) }}" >
-                        <button class='table__button table__edit' type='button'>
-                            <img src="{{ asset('svgs/edit-icon.svg') }}"  alt='editar'>
-                            Alterar
-                        </button>
-                    </a>
                     <form style="display: inline;" method="POST" action="{{route('categoria.restore', $cat->id) }}" onsubmit="return restaurar();">
                         @method('PATCH')
                         @csrf
-                        <button type="submit"  class='table__button table__edit'>
-                            <img src="{{ asset('svgs/trash-icon.svg') }}" alt='restaurar'>
+                        <button type="submit"  class='table__button table__remove'>
+                            <img src="{{ asset('svgs/edit-icon.svg') }}" alt='restaurar'>
                             Restaurar
                         </button>
                     </form>

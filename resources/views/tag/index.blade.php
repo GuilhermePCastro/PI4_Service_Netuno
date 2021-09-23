@@ -102,7 +102,7 @@
                         @csrf
                         <button type="submit"  class='table__button table__remove'>
                             <img src="{{ asset('svgs/trash-icon.svg') }}" alt='remover'>
-                            Delete
+                            Deletar
                         </button>
                     </form>
                 </td>
