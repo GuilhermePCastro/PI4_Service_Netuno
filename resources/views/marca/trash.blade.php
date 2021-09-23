@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página de Clientes</title>
+  <title>Lixeira de marca</title>
   <script src="{{ asset('js/menu.js') }}"></script>
 
   <link href="{{ asset('css/header.css') }}" rel="stylesheet">
@@ -14,20 +14,20 @@
 
     <script>
         function restaurar(){
-            return confirm('Você deseja restaurar a tag ?');
+            return confirm('Você deseja restaurar a categoria ?');
         }
     </script>
 </head>
 <body>
-    <header class=>
+    <header>
         @include('layouts.headerdashboard')
     </header>
   <main class="main">
     @include('layouts.menu')
     <section class="main__page-content right-container">
       <div class="page-content__title">
-        <h1 class="title__text">Lixeira - Tag</h1>
-        <a href="{{ Route('tag.create') }}">
+        <h1 class="title__text">Lixeira - Marca</h1>
+        <a href="{{ Route('marca.create') }}">
           <button type="button" class="title__include">
             Incluir Registro
           </button>
@@ -54,18 +54,16 @@
           <th>Nome</th>
           <th>Ação</th>
         </tr>
-        @foreach($tag as $t)
+        @foreach($marcas as $marca)
             <tr>
-                <td>{{ $t-> id }}</td>
-                <td>{{ $t-> ds_nome }}</td>
+                <td>{{ $marca-> id }}</td>
+                <td>{{ $marca-> ds_marca }}</td>
                 <td>
-
-
-                    <form style="display: inline;" method="POST" action="{{route('tag.restore', $t->id) }}" onsubmit="return restaurar();">
+                    <form style="display: inline;" method="POST" action="{{route('marca.restore', $marca->id) }}" onsubmit="return restaurar();">
                         @method('PATCH')
                         @csrf
                         <button type="submit"  class='table__button table__remove'>
-                            <img src="{{ asset('svgs/edit-icon.svg') }}" alt='remover'>
+                            <img src="{{ asset('svgs/edit-icon.svg') }}" alt='restaurar'>
                             Restaurar
                         </button>
                     </form>

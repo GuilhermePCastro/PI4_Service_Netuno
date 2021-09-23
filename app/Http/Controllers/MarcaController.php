@@ -66,7 +66,7 @@ class MarcaController extends Controller
 
     public function trash()
     {
-        return view('marca.trash')->with(['marca'=>Marca::onlyTrashed()->get()]);
+        return view('marca.trash')->with(['marcas'=>Marca::onlyTrashed()->get()]);
     }
 
     public function restore($id)
