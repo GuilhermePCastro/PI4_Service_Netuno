@@ -21,6 +21,11 @@ class Produto extends Model
 
     }
 
+    public function marca(){
+        return $this->belongsTo(Marca::class);
+
+    }
+
     public function tags(){
         return $this->belongsToMany(Tag::class);
     }
