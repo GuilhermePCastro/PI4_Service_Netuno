@@ -16,7 +16,7 @@ class ProdutoController extends Controller
     {
         return view('produto.index')->with(['produtos'=>Produto::paginate(10) ,'categories'=>Categoria::all()]);
     }
-    
+
 
     public function create()
     {
@@ -132,5 +132,20 @@ class ProdutoController extends Controller
         }
 
         return view('produto.index')->with(['produtos' => $produtos->paginate(5), 'categories'=>Categoria::all()]);
+    }
+
+    public function trash()
+    {
+        return view('produto.trash')->with(['produtos'=>Produto::onlyTrashed()->get(), 'categories'=>Categoria::all()]);
+    }
+
+    public function restore($id)
+    {
+        $produto = Produto::onlyTrashed()->where('id', $id)->firstOrFail();
+        $produto->restore();
+
+        session() -> flash('valido', "produto $produto->id foi restaurado com sucesso!");
+        return redirect(route('produto.trash'));
+
     }
 }

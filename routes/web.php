@@ -30,6 +30,8 @@ Route::get('/produto/{produto}/edit', [ProdutoController::class, 'edit'])->name(
 Route::patch('/produto/{produto}', [ProdutoController::class, 'update'])->name('produto.update');
 Route::delete('/produto/{produto}', [ProdutoController::class, 'destroy'])->name('produto.destroy');
 Route::get('/produto/filtro', [ProdutoController::class, 'filtro'])->name('produto.filtro');
+Route::get('/lixeira/produto', [ProdutoController::class, 'trash'])->name('produto.trash');
+Route::patch('/produto/restaura/{id}', [ProdutoController::class, 'restore'])->name('produto.restore');
 
 // Categoria
 Route::get('/categoria', [CategoriaController::class, 'index'])->name('categoria.index');

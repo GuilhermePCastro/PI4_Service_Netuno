@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página de Clientes</title>
+  <title>Página de Produtos</title>
 
   @include('layouts.bootstrap')
   <link href="{{ asset('css/header.css') }}" rel="stylesheet">

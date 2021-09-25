@@ -44,29 +44,6 @@
             </div>
         @endif
 
-      <form class="page-content__inputs inputs-group">
-        <label class="input-container input-container-10">
-          Código
-          <input name="codigo" type="text" class="input-container__input">
-        </label>
-        <label class="input-container input-container-40">
-          Nome
-          <input name="nome" type="text" class="input-container__input">
-        </label>
-        <label class="input-container input-container-30">
-          Categoria
-          <select name="category_id">
-                <option value=""></option>
-                @foreach ($categories as $category )
-                    <option value="{{$category->id}}">{{$category->cate_nome}}</option>
-                @endforeach
-            </select>
-        </label>
-        <button type="submit" class="inputs__search">
-
-          Buscar
-        </button>
-      </form>
 
       <table class="page-content__table"  border="0" cellpadding="0" cellspacing="0">
         <tr align="center">
@@ -78,10 +55,10 @@
         </tr>
         @foreach($produtos as $produto)
             <tr>
-                <td><img src="{{ asset($produto ->hx_foto1) }}"></td>
+                <td><img src="{{ asset($produto ->ds_foto) }}"></td>
                 <td style="text-align: center">{{ $produto -> id }}</td>
                 <td style="text-align: center">{{ $produto -> ds_nome }}</td>
-                <td style="text-align: center">{{ $produto -> vl_produto }}</td>
+                <td style="text-align: center">{{ number_format($produto -> vl_produto, 2, ',', '.') }}</td>
                 <td>
 
                     <form style="display: inline;" method="POST" action="{{route('produto.restore', $produto->id) }}" onsubmit="return restaurar();">
