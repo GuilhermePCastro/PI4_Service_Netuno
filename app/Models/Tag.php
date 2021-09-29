@@ -16,6 +16,6 @@ class Tag extends Model
     protected $fillable = ['id','ds_nome', 'tg_filtro'];
 
     public function produtos(){
-        return $this->hasMany(Produto::class);
+        return $this->belongsToMany(Produto::class);
     }
 }
