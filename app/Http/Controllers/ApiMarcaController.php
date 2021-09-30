@@ -16,4 +16,9 @@ class ApiMarcaController extends Controller
     {
         return response()->json(Marca::where('id',$marca->id)->get());
     }
+
+    public function produtos(Marca $marca)
+    {
+        return response()->json($marca->produtos()->with('tags')->with('categoria')->with('marca')->get());
+    }
 }

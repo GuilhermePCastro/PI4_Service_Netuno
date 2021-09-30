@@ -29,11 +29,13 @@ Route::get('/produto/{produto}', [ApiProdutoController::class, 'show']);
 //Categoria
 Route::get('/categoria', [ApiCategoriaController::class, 'index']);
 Route::get('/categoria/{categoria}', [ApiCategoriaController::class, 'show']);
+Route::get('/categoria/{categoria}/produtos', [ApiCategoriaController::class, 'produtos']);
 
 
 //Marca
 Route::get('/marca', [ApiMarcaController::class, 'index']);
 Route::get('/marca/{marca}', [ApiMarcaController::class, 'show']);
+Route::get('/marca/{marca}/produtos', [ApiMarcaController::class, 'produtos']);
 
 //Tag
 Route::get('/tag', [ApiTagController::class, 'index']);

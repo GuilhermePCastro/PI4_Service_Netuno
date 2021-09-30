@@ -19,6 +19,6 @@ class ApiTagController extends Controller
 
     public function produtos(Tag $tag)
     {
-        return response()->json($tag);
+        return response()->json($tag->produtos()->with('tags')->with('categoria')->with('marca')->get());
     }
 }

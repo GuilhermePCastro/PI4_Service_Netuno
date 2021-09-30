@@ -17,5 +17,9 @@ class ApiCategoriaController extends Controller
         return response()->json(Categoria::where('id',$categoria->id)->get());
     }
 
-    
+    public function produtos(Categoria $categoria)
+    {
+        return response()->json($categoria->produtos()->with('tags')->with('categoria')->with('marca')->get());
+    }
+
 }
