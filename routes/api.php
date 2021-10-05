@@ -6,6 +6,7 @@ use App\Http\Controllers\ApiProdutoController;
 use App\Http\Controllers\ApiCategoriaController;
 use App\Http\Controllers\ApiMarcaController;
 use App\Http\Controllers\ApiTagController;
+use App\Http\Controllers\ApiUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//User
+Route::post('/login', [ApiUserController::class, 'login']);
+Route::get('/user/index', [ApiUserController::class, 'index']);
+Route::get('/user', [ApiUserController::class, 'show']);
+Route::get('/user/{user}', [ApiUserController::class, 'showUnique']);
+Route::post('/user', [ApiUserController::class, 'store']);
+Route::delete('/user/{user}', [ApiUserController::class, 'destroy']);
+
 //Produto
 Route::get('/produto', [ApiProdutoController::class, 'index']);
 Route::get('/produto/{produto}', [ApiProdutoController::class, 'show']);
@@ -30,7 +39,6 @@ Route::get('/produto/{produto}', [ApiProdutoController::class, 'show']);
 Route::get('/categoria', [ApiCategoriaController::class, 'index']);
 Route::get('/categoria/{categoria}', [ApiCategoriaController::class, 'show']);
 Route::get('/categoria/{categoria}/produtos', [ApiCategoriaController::class, 'produtos']);
-
 
 //Marca
 Route::get('/marca', [ApiMarcaController::class, 'index']);
