@@ -21,4 +21,9 @@ class ApiTagController extends Controller
     {
         return response()->json($tag->produtos()->with('tags')->with('categoria')->with('marca')->get());
     }
+
+    public function filtro()
+    {
+        return response()->json(Tag::where('tg_filtro',1)->get());
+    }
 }

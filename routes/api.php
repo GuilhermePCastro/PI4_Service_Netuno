@@ -43,10 +43,13 @@ Route::get('/categoria/{categoria}/produtos', [ApiCategoriaController::class, 'p
 
 //Marca
 Route::get('/marca', [ApiMarcaController::class, 'index']);
+Route::get('/marca/filtro', [ApiMarcaController::class, 'filtro']);
 Route::get('/marca/{marca}', [ApiMarcaController::class, 'show']);
 Route::get('/marca/{marca}/produtos', [ApiMarcaController::class, 'produtos']);
 
 //Tag
 Route::get('/tag', [ApiTagController::class, 'index']);
+Route::get('/tag/filtro', [ApiTagController::class, 'filtro']);
 Route::get('/tag/{tag}', [ApiTagController::class, 'show']);
 Route::get('/tag/{tag}/produtos', [ApiTagController::class, 'produtos']);
+

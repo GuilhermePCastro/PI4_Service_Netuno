@@ -21,4 +21,9 @@ class ApiMarcaController extends Controller
     {
         return response()->json($marca->produtos()->with('tags')->with('categoria')->with('marca')->get());
     }
+
+    public function filtro()
+    {
+        return response()->json(Marca::where('tg_filtro',1)->get());
+    }
 }
