@@ -30,6 +30,7 @@ Route::get('/user', [ApiUserController::class, 'show']);
 Route::get('/user/{user}', [ApiUserController::class, 'showUnique']);
 Route::post('/user', [ApiUserController::class, 'store']);
 Route::delete('/user/{user}', [ApiUserController::class, 'destroy']);
+Route::put('/user/{user}', [ApiUserController::class, 'update']);
 
 //Produto
 Route::get('/produto', [ApiProdutoController::class, 'index']);
