@@ -18,7 +18,7 @@ use App\Http\Controllers\MarcaController;
 require __DIR__.'/auth.php';
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Route::get('/produto', [ProdutoController::class, 'index'])->name('produto.index');
@@ -30,6 +30,7 @@ Route::delete('/produto/{produto}',[ProdutoController::class,'destroy'])->name('
 Route::get('/produto/filtro',[ProdutoController::class,'filtro'])->name('produto.filtro');
 Route::get('/lixeira/produto',[ProdutoController::class,'trash'])->name('produto.trash');
 Route::patch('/produto/restaura/{id}',[ProdutoController::class,'restore'])->name('produto.restore');
+
 //Categoria
 Route::get('/categoria',[CategoriaController::class,'index'])->name('categoria.index');
 Route::get('/categoria/create',[CategoriaController::class,'create'])->name('categoria.create');
@@ -40,6 +41,7 @@ Route::delete('/categoria/{categoria}',[CategoriaController::class,'destroy'])->
 Route::get('/categoria/filtro',[CategoriaController::class,'filtro'])->name('categoria.filtro');
 Route::get('/lixeira/categoria',[CategoriaController::class,'trash'])->name('categoria.trash');
 Route::patch('/categoria/restaura/{id}',[CategoriaController::class,'restore'])->name('categoria.restore');
+
 //Tag
 Route::get('/tag',[TagController::class,'index'])->name('tag.index');
 Route::get('/tag/create',[TagController::class,'create'])->name('tag.create');
@@ -50,6 +52,7 @@ Route::delete('/tag/{tag}',[TagController::class,'destroy'])->name('tag.destroy'
 Route::get('/tag/filtro',[TagController::class,'filtro'])->name('tag.filtro');
 Route::get('/lixeira/tag',[TagController::class,'trash'])->name('tag.trash');
 Route::patch('/tag/restaura/{id}',[TagController::class,'restore'])->name('tag.restore');
+
 //Marca
 Route::get('/marca',[MarcaController::class,'index'])->name('marca.index');
 Route::get('/marca/create',[MarcaController::class,'create'])->name('marca.create');

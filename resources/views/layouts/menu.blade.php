@@ -3,7 +3,7 @@
     <ul class="sidebar__nav">
         <li class="nav__item hide-children">
             <span class="item__title">
-                <a class="hide-children" >Dashboard</a>
+                <a class="hide-children"  href="{{ Route('dashboard') }}">Dashboard</a>
             </span>
         </li>
         <li class="nav__item hide-children">
@@ -42,7 +42,7 @@
         </li>
         <li class="nav__item hide-children">
             <span class="item__title">
-                <span></span>
+                <span>{{ Auth()->user()->name }}</span>
                 <img
                     class="title__icon"
                     src="{{ asset('svgs/arrow-down.svg') }}"
@@ -51,7 +51,14 @@
             </span>
             <ul class="item__subnav">
                 <li class="subnav__item">
-                    <a class="item__link" href="/">Home</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <x-dropdown-link style="" class="item__link" :href="route('logout')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Logout') }}
+                        </x-dropdown-link>
+                    </form>
                 </li>
             </ul>
         </li>

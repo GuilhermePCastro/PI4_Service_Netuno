@@ -1,0 +1,348 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+    min-height: 100vh;
+    height: 100vh;
+}
+
+/* --------------- Banner ---------------- */
+.banner {
+    background-image: url(../images/banner.png);
+    min-height: 580px;
+    width: 100%;
+    margin: 0;
+}
+
+/* --------------- Kard ------------------ */
+.kard {
+    box-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
+    border-radius: 0.5rem;
+    position: relative;
+}
+
+.btn-position{
+    position: absolute;
+    bottom: 0;
+}
+
+.cont-kard {
+    padding: 0.5rem;
+}
+
+.kard img {
+    border-radius: 0.5rem;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.img-kard {
+    padding: 0.3rem;
+    width: 300px;
+    height: 300px;
+}
+
+.text-kard {
+    font-size: 1.3rem;
+}
+
+.money-kard {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.btn-kard {
+    padding: 0.7rem 0;
+    background: #FFCE09;
+    border: none;
+    width: 100%;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* ------ Banner -------*/
+.img-banner img {
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.img-kard-content img {
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.dsk-container-4x1{
+    width: 4vw;
+}
+
+.dsk-container-4x2{
+    width: 8vw;
+}
+
+.dsk-container-4x3{
+    width: 12vw;
+}
+
+.dsk-container-4x4{
+    width: 16vw;
+}
+
+.dsk-container-4x5{
+    width: 20vw;
+}
+
+.dsk-container-4x6{
+    width: 24vw;
+}
+
+.dsk-container-4x7{
+    width: 28vw;
+}
+
+.dsk-container-4x8{
+    width: 32vw;
+}
+
+.dsk-container-4x9{
+    width: 36vw;
+}
+
+.dsk-container-4x10{
+    width: 40vw;
+}
+
+.dsk-container-4x11{
+    width: 44vw;
+}
+
+.dsk-container-4x12{
+    width: 48vw;
+}
+
+.dsk-container-4x13{
+    width: 52vw;
+}
+
+.dsk-container-4x14{
+    width: 56vw;
+}
+.dsk-container-4x15{
+    width: 60vw;
+}
+
+.dsk-container-4x16{
+    width: 64vw;
+}
+
+.dsk-container-4x17{
+    width: 68vw;
+}
+
+.dsk-container-4x18{
+    width: 72vw;
+}
+
+.dsk-container-4x19{
+    width: 76vw;
+}
+
+.dsk-container-4x20{
+    width: 80vw;
+}
+
+.dsk-container-4x21{
+    width: 84vw;
+}
+
+.dsk-container-4x22{
+    width: 88vw;
+}
+
+.dsk-container-4x23{
+    width: 92vw;
+}
+
+.dsk-container-4x24{
+    width: 96vw;
+}
+
+.dsk-container-4x25{
+    width: 100vw;
+}
+
+.logo-header {
+    height: 130px;
+    margin-bottom: 12px;
+}
+
+
+/* ---------- Footer ----------- */
+.footer-dark {
+    height: 70px;
+    background: #010101;
+    width: 100%;
+    bottom: 0;
+}
+
+/* --------  ----------*/
+
+@media (max-width: 900px){
+
+    /* ----------- Header -------------*/
+
+    .logo-header {
+        height: 40px;
+    }
+
+    .header-principal{
+        height: 60px;
+        border-bottom: 1px solid #D8D8D8;
+
+    }
+
+    /* ---------- Banner ------------*/
+    .banner {
+        background-image: url(../images/banner.png);
+        min-height: 200px;
+        width: auto;
+
+    }
+
+    /* --------------- Kard ------------------ */
+    .text-h2 {
+        font-size: 1.8rem;
+    }
+
+    .text-kard {
+        font-size: 1.1rem;
+    }
+
+    .money-kard {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .btn-kard {
+        padding: 0.5rem 0;
+        background: #FFCE09;
+        border: none;
+        width: 100%;
+        color: #fff;
+        font-weight: 500;
+        border-radius: 0 0 0.5rem 0.5rem;
+    }
+
+
+    /* ------------- -----------------*/
+
+    .sm-container-4x1{
+        width: 4vw;
+    }
+
+    .sm-container-4x2{
+        width: 8vw;
+    }
+
+    .sm-container-4x3{
+        width: 12vw;
+    }
+
+    .sm-container-4x4{
+        width: 16vw;
+    }
+
+    .sm-container-4x5{
+        width: 20vw;
+    }
+
+    .sm-container-4x6{
+        width: 24vw;
+    }
+
+    .sm-container-4x7{
+        width: 28vw;
+    }
+
+    .sm-container-4x8{
+        width: 32vw;
+    }
+
+    .sm-container-4x9{
+        width: 36vw;
+    }
+
+    .sm-container-4x10{
+        width: 40vw;
+    }
+
+    .sm-container-4x11{
+        width: 44vw;
+    }
+
+    .sm-container-4x12{
+        width: 48vw;
+    }
+
+    .sm-container-4x13{
+        width: 52vw;
+    }
+
+    .sm-container-4x14{
+        width: 56vw;
+    }
+
+    .sm-container-4x15{
+        width: 60vw;
+    }
+
+    .sm-container-4x16{
+        width: 64vw;
+    }
+
+    .sm-container-4x17{
+        width: 68vw;
+    }
+
+    .sm-container-4x18{
+        width: 72vw;
+    }
+
+    .sm-container-4x19{
+        width: 76vw;
+    }
+
+    .sm-container-4x20{
+        width: 80vw;
+    }
+
+    .sm-container-4x21{
+        width: 84vw;
+    }
+
+    .sm-container-4x22{
+        width: 88vw;
+    }
+
+    .sm-container-4x23{
+        width: 92vw;
+    }
+
+    .sm-container-4x24{
+        width: 96vw;
+    }
+
+    .sm-container-4x25{
+        width: 100vw;
+    }
+
+    .logo-header {
+        height: 85px;
+        margin-bottom: 8px;
+    }
+}
