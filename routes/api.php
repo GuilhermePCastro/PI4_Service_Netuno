@@ -7,6 +7,7 @@ use App\Http\Controllers\ApiCategoriaController;
 use App\Http\Controllers\ApiMarcaController;
 use App\Http\Controllers\ApiTagController;
 use App\Http\Controllers\ApiUserController;
+use App\Http\Controllers\ApiClienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,14 @@ Route::get('/user/{user}', [ApiUserController::class, 'showUnique']);
 Route::post('/user', [ApiUserController::class, 'store']);
 Route::delete('/user/{user}', [ApiUserController::class, 'destroy']);
 Route::put('/user/{user}', [ApiUserController::class, 'update']);
+
+//Cliente
+Route::get('/cliente/index', [ApiClienteController::class, 'index']);
+Route::post('/cliente', [ApiClienteController::class, 'store']);
+Route::get('/cliente/{cliente}', [ApiClienteController::class, 'show']);
+Route::delete('/cliente/{cliente}', [ApiClienteController::class, 'destroy']);
+Route::put('/cliente/{cliente}', [ApiClienteController::class, 'update']);
+
 
 //Produto
 Route::get('/produto', [ApiProdutoController::class, 'index']);

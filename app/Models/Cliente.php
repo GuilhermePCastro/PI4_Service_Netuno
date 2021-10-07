@@ -9,8 +9,12 @@ class Cliente extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['ds_nome', 'ds_cpf', 'ds_celular', 'ds_email', 'ds_senha'];
+    protected $fillable = ['user_id','ds_nome', 'ds_cpf', 'ds_celular', 'ds_email'];
     protected $table = 'tb_cliente';
+
+    public function usuario(){
+        return $this->belongsTo(User::class);
+    }
 
 
 }
