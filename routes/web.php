@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\UsuarioAdminController;
+use App\Http\Controllers\ClienteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,7 +70,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/lixeira/marca',[MarcaController::class,'trash'])->name('marca.trash');
     Route::patch('/marca/restaura/{id}',[MarcaController::class,'restore'])->name('marca.restore');
 
-    //Marca
+    //Usuário
     Route::get('/usuario',[UsuarioAdminController::class,'index'])->name('usuario.index');
     Route::get('/usuario/create',[UsuarioAdminController::class,'create'])->name('usuario.create');
     Route::post('/usuario',[UsuarioAdminController::class,'store'])->name('usuario.store');
@@ -77,6 +78,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::patch('/usuario/{usuario}',[UsuarioAdminController::class,'update'])->name('usuario.update');
     Route::delete('/usuario/{usuario}',[UsuarioAdminController::class,'destroy'])->name('usuario.destroy');
     Route::get('/usuario/filtro',[UsuarioAdminController::class,'filtro'])->name('usuario.filtro');
+
+    //Cliente
+    Route::get('/cliente',[ClienteController::class,'index'])->name('cliente.index');
+    Route::get('/cliente/{cliente}', [ClienteController::class, 'show'])->name('cliente.show');
+    Route::get('/cliente/filtro', [ClienteController::class, 'filtro'])->name('cliente.filtro');
 
 });
 
