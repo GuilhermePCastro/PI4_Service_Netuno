@@ -30,11 +30,6 @@ class MarcaController extends Controller
     }
 
 
-    public function show(Marca $marca)
-    {
-        //
-    }
-
 
     public function edit(Marca $marca)
     {
