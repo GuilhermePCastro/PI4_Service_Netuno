@@ -68,6 +68,7 @@ Route::get('/cliente/index', [ApiClienteController::class, 'index']);
 
 //Produto
 Route::get('/produto', [ApiProdutoController::class, 'index']);
+Route::get('/produto/destaques', [ApiProdutoController::class, 'destaques']);
 Route::get('/produto/{produto}', [ApiProdutoController::class, 'show']);
 
 //Categoria

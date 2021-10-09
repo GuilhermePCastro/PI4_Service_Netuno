@@ -22,5 +22,10 @@ class ApiProdutoController extends Controller
         return response()->json(Produto::with('tags')->with('categoria')->with('marca')->where('id',$produto->id)->get());
     }
 
+    public function destaques()
+    {
+        return response()->json(Produto::with('tags')->with('categoria')->with('marca')->where('tg_destaque',1)->get());
+    }
+
 
 }
