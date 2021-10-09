@@ -6,6 +6,13 @@
     <title>Zoom Cliente</title>
     <script src="../assets/js/menu.js"></script>
 
+    <script src="https://kit.fontawesome.com/f9d34fff0e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
     <link href="{{ asset('css/header.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
@@ -43,7 +50,7 @@
             </label>
           </div>
 
-          <div class="inputs-group">
+          <div class="inputs-group mb">
             <label class="input-container input-container-20">
               CPF
               <input name="ds_cpf" type="text" value="{{ $cliente->ds_cpf }}"  disabled/>
@@ -56,6 +63,32 @@
               Celular
               <input name="ds_celular" type="text" value="{{ $cliente->ds_celular }}"  disabled/>
             </label>
+          </div>
+
+          <h2 class="page-title mt mb">Endereços</h2>
+          <div class="inputs-group mb">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Endereço</th>
+                        <th>Bairro</th>
+                        <th>Cidade</th>
+                        <th>UF</th>
+                        <th>CEP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($cliente->enderecos()->get() as $endereco)
+                        <tr>
+                            <td>{{ $endereco->ds_endereco }}, {{ $endereco->ds_numero }}</td>
+                            <td>{{ $endereco->ds_bairro }}</td>
+                            <td>{{ $endereco->ds_cidade }}</td>
+                            <td>{{ $endereco->ds_uf }}</td>
+                            <td>{{ $endereco->ds_cep }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
           </div>
 
         </form>

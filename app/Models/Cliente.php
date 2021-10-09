@@ -16,5 +16,9 @@ class Cliente extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function enderecos(){
+        return $this->hasMany(Endereco::class);
+    }
+
 
 }

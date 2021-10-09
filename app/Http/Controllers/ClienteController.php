@@ -16,7 +16,6 @@ class ClienteController extends Controller
     }
 
     public function filtro(Request $request){
-
         $clientes = Cliente::where('id', '>', '0');
 
         if($request->user != ''){
@@ -33,6 +32,6 @@ class ClienteController extends Controller
             $clientes = $clientes->where('ds_email','=', $request->email);
         }
 
-        return view('cliente.index')->with(['clientes' => $clientes->paginate(10)]);
+        return view('cliente.index')->with('clientes', $clientes->paginate(8));
     }
 }

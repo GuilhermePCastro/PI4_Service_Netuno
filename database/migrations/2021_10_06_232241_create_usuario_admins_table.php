@@ -28,6 +28,6 @@ class CreateUsuarioAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_usuarioadmin');
+       
     }
 }
