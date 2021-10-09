@@ -9,6 +9,7 @@ use App\Http\Controllers\ApiTagController;
 use App\Http\Controllers\ApiUserController;
 use App\Http\Controllers\ApiClienteController;
 use App\Http\Controllers\ApiEnderecoController;
+use App\Http\Controllers\ApiCarrinhoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,12 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::post('/endereco', [ApiEnderecoController::class, 'store']);
     Route::delete('/endereco/{endereco}', [ApiEnderecoController::class, 'destroy']);
     Route::put('/endereco/{endereco}', [ApiEnderecoController::class, 'update']);
+
+    //Carrinho
+    Route::get('/carrinho/add/{produto}', [ApiCarrinhoController::class, 'add']);
+    Route::get('/carrinho/remove/{produto}', [ApiCarrinhoController::class, 'remove']);
+    Route::get('/carrinho', [ApiCarrinhoController::class, 'show']);
+
 
 });
 
