@@ -83,7 +83,7 @@ Route::group(['middleware' => 'auth'], function(){
     //Cliente
     Route::get('/cliente',[ClienteController::class,'index'])->name('cliente.index');
     Route::get('/cliente/{cliente}', [ClienteController::class, 'show'])->name('cliente.show');
-    Route::get('/cliente/filtro', [ClienteController::class, 'filtro'])->name('cliente.filtro');
+    Route::get('/cliente/index/filtro', [ClienteController::class, 'filtro'])->name('cliente.filtro');
 
     //pedido
     Route::get('/pedido',[PedidoController::class,'index'])->name('pedido.index');

@@ -22,6 +22,10 @@ class ClienteController extends Controller
             $clientes = $clientes->where('user_id','=', $request->user);
         }
 
+        if($request->cliente != ''){
+            $clientes = $clientes->where('id','=', $request->cliente);
+        }
+
         if($request->cpf != ''){
 
             $clientes = $clientes->where('ds_cpf','=', $request->cpf);

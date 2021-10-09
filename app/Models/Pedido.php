@@ -48,4 +48,44 @@ class Pedido extends Model
                                 ['cliente_id','=', $cliente->id]
                             ])->orderBy('id','desc')->get();
     }
+
+    public static function quantidadePedidos(){
+
+        $pedidos = Pedido::where('created_at', '>', date("d/m/Y",strtotime(date("Y-m-d")."-7 day")))->get();
+        return $pedidos->count();
+    }
+
+    public static function valorPedidos(){
+
+        $pedidos = Pedido::where('created_at', '>', date("d/m/Y",strtotime(date("Y-m-d")."-7 day")))->get();
+
+        $total = 0;
+        foreach($pedidos as $pedido){
+            $total += $pedido->vl_total;
+        }
+
+        return $total;
+    }
+
+    public static function qtPedidosPendetes(){
+
+        $pedidos = Pedido::Where('ds_status','=','Em Aberto')->orWhere('ds_status','=','Em Atendimento')
+        ->orWhere('ds_status','=','Em Separação')->get();
+
+        return $pedidos->count();
+    }
+
+    public static function valorPedidoMes(){
+
+        $pedidos = Pedido::whereMonth('created_at', date("m"));
+        $pedidos = $pedidos->whereYear('created_at', date("Y"))->get();
+
+        $total = 0;
+        foreach($pedidos as $pedido){
+            $total += $pedido->vl_total;
+        }
+
+        return $total;
+    }
+
 }

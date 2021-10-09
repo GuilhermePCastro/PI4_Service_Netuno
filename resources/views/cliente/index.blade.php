@@ -50,6 +50,10 @@
 
       <form class="page-content__inputs inputs-group" action="{{ Route('cliente.filtro') }}">
         <label class="input-container input-container-10">
+            Cod. Cliente
+            <input id="cliente" name="cliente" type="text" class="input-container__input">
+        </label>
+        <label class="input-container input-container-10">
             Cod. Usuário
             <input id="user" name="user" type="text" class="input-container__input">
         </label>
