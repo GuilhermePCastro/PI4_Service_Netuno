@@ -13,6 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
+
     <link href="{{ asset('css/header.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
@@ -85,6 +86,39 @@
                             <td>{{ $endereco->ds_cidade }}</td>
                             <td>{{ $endereco->ds_uf }}</td>
                             <td>{{ $endereco->ds_cep }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+          </div>
+
+          <h2 class="page-title mt mb">Últimos 5 pedidos </h2>
+          <div class="inputs-group mb">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Cód.</th>
+                        <th>Status</th>
+                        <th>Data</th>
+                        <th>Total</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($cliente->ult5pedidos()->get() as $pedido)
+                        <tr>
+                            <td>{{ $pedido->id }}</td>
+                            <td>{{ $pedido->ds_status }}</td>
+                            <td>{{ date_format($pedido->created_at, 'd/m/Y') }}</td>
+                            <td>{{ number_format($pedido -> vl_total, 2, ',', '.') }}</td>
+                            <td>
+                                <a href="{{ route('pedido.show', $pedido->id) }}" >
+                                    <button class='btn btn-primary btn-sm' type='button'>
+                                        <img src="{{ asset('svgs/edit-icon.svg') }}"  alt='editar'>
+                                        Verificar
+                                    </button>
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

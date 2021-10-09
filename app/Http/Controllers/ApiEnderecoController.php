@@ -16,7 +16,6 @@ class ApiEnderecoController extends Controller
     public function store(Request $request){
 
         $cliente = Cliente::where('user_id', auth('sanctum')->user()->id)->first();
-
         $endereco = Endereco::create([
             'ds_endereco'   => $request->ds_endereco,
             'ds_numero'     => $request->ds_numero,

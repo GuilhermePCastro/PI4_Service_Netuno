@@ -20,5 +20,13 @@ class Cliente extends Model
         return $this->hasMany(Endereco::class);
     }
 
+    public function pedidos(){
+        return $this->hasMany(Pedido::class);
+    }
+
+    public function ult5pedidos(){
+        return Pedido::where('cliente_id', $this->id)->orderByDesc('id')->take(5);
+    }
+
 
 }
