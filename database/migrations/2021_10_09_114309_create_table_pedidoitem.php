@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsuarioAdminsTable extends Migration
+class CreateTablePedidoitem extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateUsuarioAdminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_usuarioadmin', function (Blueprint $table) {
+        Schema::create('tb_pedidoitens', function (Blueprint $table) {
             $table->id();
-            $table->string('ds_email');
-            $table->string('ds_senha');
+            $table->integer('pedido_id');
+            $table->integer('produto_id');
+            $table->integer('qt_produto');
+            $table->double('vl_produto',12,4);
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateUsuarioAdminsTable extends Migration
      */
     public function down()
     {
-       
+        Schema::dropIfExists('tb_pedidoitens');
     }
 }

@@ -16,5 +16,23 @@ class Cliente extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function enderecos(){
+        return $this->hasMany(Endereco::class);
+    }
+
+    public function pedidos(){
+        return $this->hasMany(Pedido::class);
+    }
+
+    public function ult5pedidos(){
+        return Pedido::where('cliente_id', $this->id)->orderByDesc('id')->take(5);
+    }
+
+    public static function quantidadeClientes(){
+
+        $clientes = Cliente::where('created_at', '>', date("d/m/Y",strtotime(date("Y-m-d")."-7 day")))->get();
+        return $clientes->count();
+    }
+
 
 }

@@ -8,6 +8,9 @@ use App\Http\Controllers\ApiMarcaController;
 use App\Http\Controllers\ApiTagController;
 use App\Http\Controllers\ApiUserController;
 use App\Http\Controllers\ApiClienteController;
+use App\Http\Controllers\ApiEnderecoController;
+use App\Http\Controllers\ApiCarrinhoController;
+use App\Http\Controllers\ApiPedidoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,25 +27,54 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Só acessa com token
+Route::group(['middleware' => 'auth:sanctum'], function(){
+
+    //User
+    Route::get('/user', [ApiUserController::class, 'show']);
+    Route::get('/user/{user}', [ApiUserController::class, 'showUnique']);
+    Route::delete('/user/{user}', [ApiUserController::class, 'destroy']);
+    Route::put('/user/{user}', [ApiUserController::class, 'update']);
+
+    //Cliente
+    Route::post('/cliente', [ApiClienteController::class, 'store']);
+    Route::get('/cliente/{cliente}', [ApiClienteController::class, 'show']);
+    Route::delete('/cliente/{cliente}', [ApiClienteController::class, 'destroy']);
+    Route::put('/cliente/{cliente}', [ApiClienteController::class, 'update']);
+    Route::get('/cliente/{cliente}/enderecos', [ApiClienteController::class, 'enderecos']);
+    Route::get('/cliente/{cliente}/pedidos', [ApiClienteController::class, 'pedidos']);
+
+    //Endereco
+    Route::get('/endereco/index', [ApiEnderecoController::class, 'index']);
+    Route::get('/endereco/{endereco}', [ApiEnderecoController::class, 'show']);
+    Route::post('/endereco', [ApiEnderecoController::class, 'store']);
+    Route::delete('/endereco/{endereco}', [ApiEnderecoController::class, 'destroy']);
+    Route::put('/endereco/{endereco}', [ApiEnderecoController::class, 'update']);
+
+    //Carrinho
+    Route::get('/carrinho/add/{produto}', [ApiCarrinhoController::class, 'add']);
+    Route::get('/carrinho/remove/{produto}', [ApiCarrinhoController::class, 'remove']);
+    Route::get('/carrinho', [ApiCarrinhoController::class, 'show']);
+
+    //Pedido
+    Route::post('/pedido/add', [ApiPedidoController::class, 'add']);
+    Route::get('/pedido', [ApiPedidoController::class, 'index']);
+    Route::get('/pedido/{pedido}', [ApiPedidoController::class, 'show']);
+
+});
+
 //User
 Route::post('/login', [ApiUserController::class, 'login']);
 Route::get('/user/index', [ApiUserController::class, 'index']);
-Route::get('/user', [ApiUserController::class, 'show']);
-Route::get('/user/{user}', [ApiUserController::class, 'showUnique']);
-Route::post('/user', [ApiUserController::class, 'store']);
-Route::delete('/user/{user}', [ApiUserController::class, 'destroy']);
-Route::put('/user/{user}', [ApiUserController::class, 'update']);
+
 
 //Cliente
 Route::get('/cliente/index', [ApiClienteController::class, 'index']);
-Route::post('/cliente', [ApiClienteController::class, 'store']);
-Route::get('/cliente/{cliente}', [ApiClienteController::class, 'show']);
-Route::delete('/cliente/{cliente}', [ApiClienteController::class, 'destroy']);
-Route::put('/cliente/{cliente}', [ApiClienteController::class, 'update']);
-
+Route::post('/user', [ApiUserController::class, 'store']);
 
 //Produto
 Route::get('/produto', [ApiProdutoController::class, 'index']);
+Route::get('/produto/destaques', [ApiProdutoController::class, 'destaques']);
 Route::get('/produto/{produto}', [ApiProdutoController::class, 'show']);
 
 //Categoria

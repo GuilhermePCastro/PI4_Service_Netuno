@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsuarioAdminsTable extends Migration
+class AddTableCarrinho extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateUsuarioAdminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_usuarioadmin', function (Blueprint $table) {
+        Schema::create('tb_carrinho', function (Blueprint $table) {
             $table->id();
-            $table->string('ds_email');
-            $table->string('ds_senha');
+            $table->integer('cliente_id');
+            $table->integer('produto_id');
+            $table->integer('qt_produto');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateUsuarioAdminsTable extends Migration
      */
     public function down()
     {
-       
+        Schema::dropIfExists('tb_carrinho');
     }
 }
