@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UsuarioAdmin;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UsuarioAdminController extends Controller
 {
     public function index()
     {
-        return view('usuario.index')->with('clientes', UsuarioAdmin::paginate(5));
+        return view('usuario.index')->with('user', User::paginate(5));
     }
 
     public function create()
@@ -19,31 +19,45 @@ class UsuarioAdminController extends Controller
 
     public function store(Request $request)
     {
-        UsuarioAdmin::create($request -> all());
+        User::create($request -> all());
         session() -> flash('valido', "Usuario Admin foi adicionada com sucesso!");
         return redirect(route('usuario.index'));
     }
 
 
-    public function edit(UsuarioAdmin $usuarioAdmin)
+    public function edit(User $user)
     {
-        return view('usuario.edit') -> with('usuario', $usuarioAdmin);
+        return view('usuario.edit') -> with('usuario', $user);
     }
 
-    public function update(Request $request, UsuarioAdmin $usuarioAdmin)
+    public function update(Request $request, User $user)
     {
-        $usuarioAdmin->update($request -> all());
+        $user->update($request -> all());
 
-        session() -> flash('valido', "Usuario Admin $usuarioAdmin->id foi adicionada com sucesso!");
+        session() -> flash('valido', "Usuario Admin $user->id foi adicionada com sucesso!");
         return redirect(route('usuario.index'));
 
     }
 
-    public function destroy(UsuarioAdmin $usuarioAdmin)
+    public function destroy(User $user)
     {
-        $usuarioAdmin -> delete();
+        $user -> delete();
 
-        session() -> flash('valido', "Usuario Admin $usuarioAdmin->id foi deletada com sucesso!");
+        session() -> flash('valido', "Usuario Admin $user->id foi deletada com sucesso!");
         return redirect(route('usuario.index'));
+    }
+
+    public function filtro(Request $request){
+        $user = User::where('id', '>', '0');
+
+        if($request->nome != ''){
+            $user = $user->where('nome','like', '%' . $request->nome . '%');
+        }
+
+        if($request->codigo != ''){
+            $user = $user->where('id','=', $request->codigo );
+        }
+
+        return view('usuario.index')->with(['user' => $user->paginate(10)]);
     }
 }

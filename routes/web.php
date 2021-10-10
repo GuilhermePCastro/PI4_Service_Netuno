@@ -76,7 +76,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/usuario/{usuario}/edit',[UsuarioAdminController::class,'edit'])->name('usuario.edit');
     Route::patch('/usuario/{usuario}',[UsuarioAdminController::class,'update'])->name('usuario.update');
     Route::delete('/usuario/{usuario}',[UsuarioAdminController::class,'destroy'])->name('usuario.destroy');
-    Route::get('/usuario/filtro',[UsuarioAdminController::class,'filtro'])->name('usuario.filtro');
+    //Route::get('/usuario/filtro',[UsuarioAdminController::class,'filtro'])->name('usuario.filtro');
 
 });
 

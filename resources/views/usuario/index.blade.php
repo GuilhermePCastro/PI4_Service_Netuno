@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página de Clientes</title>
+  <title>Página de Usuário</title>
 
   @include('layouts.bootstrap')
   <link href="{{ asset('css/header.css') }}" rel="stylesheet">
@@ -31,7 +31,7 @@
 
     <section class="main__page-content right-container">
       <div class="page-content__title">
-        <h1 class="title__text">Clientes</h1>
+        <h1 class="title__text">Usuários</h1>
       </div>
 
         <!-- Mostrando mensagem na tela com a session -->
@@ -48,7 +48,7 @@
             </div>
         @endif
 
-      <form class="page-content__inputs inputs-group" action="{{ Route('cliente.filtro') }}">
+      <form class="page-content__inputs inputs-group" >
         <label class="input-container input-container-10">
             Cod. Usuário
             <input id="user" name="user" type="text" class="input-container__input">
@@ -65,19 +65,15 @@
       <table class="page-content__table"  border="0" cellpadding="0" cellspacing="0">
             <tr align="center">
             <th>Nome</th>
-            <th>CPF</th>
             <th>E-mail</th>
-            <th>Admin</th>
             <th>Ação</th>
             </tr>
-            @foreach($clientes as $cliente)
+            @foreach($user as $user)
                 <tr>
-                    <td>{{ $cliente->usuario()->name }}</td>
-                    <td>{{ $cliente->ds_cpf }}</td>
-                    <td>{{ $cliente->usuario()->email }}</td>
-                    <td>{{ $cliente->usuario()->IsAdmin == 1 ? 'Sim' : 'Não' }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
                     <td>
-                        <a href="{{ Route('cliente.admin', $cliente->id) }}">
+                        <a >
                             <button class='table__button table__remove' type='button'>
                                 <img src="{{ asset('svgs/edit-icon.svg') }}"  alt='editar'>
                                 Tornar Admin
@@ -88,7 +84,7 @@
             @endforeach
         </table>
       <div class="mt-5 mb-5 d-flex justify-content-center">
-        {{ $clientes->withQueryString()->links()}}
+        {{ $user->withQueryString()->links()}}
     </div>
 
     </section>
