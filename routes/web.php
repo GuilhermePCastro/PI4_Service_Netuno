@@ -91,9 +91,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::put('/pedido/{pedido}', [PedidoController::class, 'update'])->name('pedido.update');
     Route::get('/pedido/index/filtro', [PedidoController::class, 'filtro'])->name('pedido.filtro');
 
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth'])->name('dashboard');
+
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+
 
