@@ -15,7 +15,7 @@
 
     <script>
         function remover(){
-            return confirm('Você deseja remover o produto ?');
+            return confirm('Você deseja remover esse usuário ?');
         }
     </script>
 </head>
@@ -32,6 +32,11 @@
     <section class="main__page-content right-container">
       <div class="page-content__title">
         <h1 class="title__text">Usuários</h1>
+        <a href="{{ Route('usuario.create') }}">
+            <button type="button" class="title__include">
+              Incluir Registro
+            </button>
+          </a>
       </div>
 
         <!-- Mostrando mensagem na tela com a session -->
@@ -68,23 +73,32 @@
             <th>E-mail</th>
             <th>Ação</th>
             </tr>
-            @foreach($user as $user)
+            @foreach($user as $u)
                 <tr>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
+                    <td>{{ $u->name }}</td>
+                    <td>{{ $u->email }}</td>
                     <td>
-                        <a >
-                            <button class='table__button table__remove' type='button'>
+                        <a href="{{ route('usuario.edit', $u->id) }}" >
+                            <button class='table__button table__edit' type='button'>
                                 <img src="{{ asset('svgs/edit-icon.svg') }}"  alt='editar'>
-                                Tornar Admin
+                                Alterar
                             </button>
                         </a>
+                        <form style="display: inline;" method="POST" action="{{route('usuario.destroy', $u->id) }}" onsubmit="return remover();">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit"  class='table__button table__remove'>
+                                <img src="{{ asset('svgs/trash-icon.svg') }}" alt='remover'>
+                                Deletar
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
         </table>
-      <div class="mt-5 mb-5 d-flex justify-content-center">
         {{ $user->withQueryString()->links()}}
+
+      <div class="mt-5 mb-5 d-flex justify-content-center">
     </div>
 
     </section>

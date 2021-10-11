@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UsuarioAdminController extends Controller
 {
@@ -54,9 +55,6 @@ class UsuarioAdminController extends Controller
             $user = $user->where('nome','like', '%' . $request->nome . '%');
         }
 
-        if($request->codigo != ''){
-            $user = $user->where('id','=', $request->codigo );
-        }
 
         return view('usuario.index')->with(['user' => $user->paginate(10)]);
     }

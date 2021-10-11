@@ -75,10 +75,10 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/usuario',[UsuarioAdminController::class,'index'])->name('usuario.index');
     Route::get('/usuario/create',[UsuarioAdminController::class,'create'])->name('usuario.create');
     Route::post('/usuario',[UsuarioAdminController::class,'store'])->name('usuario.store');
-    Route::get('/usuario/{usuario}/edit',[UsuarioAdminController::class,'edit'])->name('usuario.edit');
-    Route::patch('/usuario/{usuario}',[UsuarioAdminController::class,'update'])->name('usuario.update');
-    Route::delete('/usuario/{usuario}',[UsuarioAdminController::class,'destroy'])->name('usuario.destroy');
-    //Route::get('/usuario/filtro',[UsuarioAdminController::class,'filtro'])->name('usuario.filtro');
+    Route::get('/usuario/{user}/edit',[UsuarioAdminController::class,'edit'])->name('usuario.edit');
+    Route::patch('/usuario/{user}',[UsuarioAdminController::class,'update'])->name('usuario.update');
+    Route::delete('/usuario/{user}',[UsuarioAdminController::class,'destroy'])->name('usuario.destroy');
+    Route::get('/usuario/filtro',[UsuarioAdminController::class,'filtro'])->name('usuario.filtro');
 
     //Cliente
     Route::get('/cliente',[ClienteController::class,'index'])->name('cliente.index');
