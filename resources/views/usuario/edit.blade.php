@@ -25,7 +25,7 @@
       @include('layouts.menu')
       <section class="main__page-content right-container">
         <div class="page-content__title">
-          <h1 class="page-title mt mb">Usuaário</h1>
+          <h1 class="page-title mt mb">Usuário</h1>
         </div>
 
         <form class="page-content__inputs mb" method='POST'  action="{{ Route('usuario.update', $usuario->id) }}">
@@ -42,7 +42,7 @@
             </label>
             <label class="input-container input-container-80">
                 Senha do Usuário*
-                <input name="password" type="text" value="{{ $usuario->password }}" required/>
+                <input name="password" type="password" required/>
             </label>
 
           </div>

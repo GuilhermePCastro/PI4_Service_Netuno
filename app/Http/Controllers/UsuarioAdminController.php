@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioAdminController extends Controller
 {
@@ -20,11 +21,14 @@ class UsuarioAdminController extends Controller
 
     public function store(Request $request)
     {
-        User::create($request -> all());
-        session() -> flash('valido', "Usuario Admin foi adicionada com sucesso!");
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ]);
+        session() -> flash('valido', "Usuario foi adicionada com sucesso!");
         return redirect(route('usuario.index'));
     }
-
 
     public function edit(User $user)
     {
@@ -33,29 +37,30 @@ class UsuarioAdminController extends Controller
 
     public function update(Request $request, User $user)
     {
-        $user->update($request -> all());
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ]);
 
-        session() -> flash('valido', "Usuario Admin $user->id foi adicionada com sucesso!");
+        session() -> flash('valido', "Usuario $user->id foi adicionada com sucesso!");
         return redirect(route('usuario.index'));
-
     }
 
     public function destroy(User $user)
     {
         $user -> delete();
 
-        session() -> flash('valido', "Usuario Admin $user->id foi deletada com sucesso!");
+        session() -> flash('valido', "Usuario $user->id foi deletada com sucesso!");
         return redirect(route('usuario.index'));
     }
 
     public function filtro(Request $request){
         $user = User::where('id', '>', '0');
 
-        if($request->nome != ''){
-            $user = $user->where('nome','like', '%' . $request->nome . '%');
+        if($request->email != ''){
+            $user = $user->where('email','like', '%' . $request->email . '%');
         }
-
-
         return view('usuario.index')->with(['user' => $user->paginate(10)]);
     }
 }

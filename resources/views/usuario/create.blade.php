@@ -43,7 +43,7 @@
             </label>
             <label class="input-container input-container-80">
                 Senha*
-                <input name="password" type="text" required/>
+                <input name="password" type="password" required/>
             </label>
           </div>
 

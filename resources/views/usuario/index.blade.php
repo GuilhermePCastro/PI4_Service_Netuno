@@ -53,14 +53,14 @@
             </div>
         @endif
 
-      <form class="page-content__inputs inputs-group" >
+      <form class="page-content__inputs inputs-group" action="{{ Route('usuario.filtro') }}" >
         <label class="input-container input-container-10">
             Cod. Usuário
             <input id="user" name="user" type="text" class="input-container__input">
         </label>
         <label class="input-container input-container-30">
-          CPF
-          <input id="cpf" name="cpf" type="text" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$" placeholder="999.999.999-99" class="input-container__input">
+          Email
+          <input id="email" name="email" type="email" class="input-container__input">
         </label>
         <button type="submit" class="inputs__search">
           Buscar

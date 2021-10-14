@@ -24,6 +24,9 @@
                 <li class="subnav__item">
                     <a class="item__link" href="{{ Route('marca.index') }}" >Marca</a>
                 </li>
+                <li class="subnav__item">
+                    <a class="item__link" href="{{ Route('usuario.index') }}" >Usuário ADM</a>
+                </li>
             </ul>
         </li>
         <li class="nav__item hide-children">
