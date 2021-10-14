@@ -61,6 +61,10 @@ class UsuarioAdminController extends Controller
         if($request->email != ''){
             $user = $user->where('email','like', '%' . $request->email . '%');
         }
+
+        if($request->user != ''){
+            $user = $user->where('id','=', $request->user);
+        }
         return view('usuario.index')->with(['user' => $user->paginate(10)]);
     }
 }

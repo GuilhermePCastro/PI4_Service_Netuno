@@ -69,12 +69,14 @@
 
       <table class="page-content__table"  border="0" cellpadding="0" cellspacing="0">
             <tr align="center">
+            <th>Cód.</th>
             <th>Nome</th>
             <th>E-mail</th>
             <th>Ação</th>
             </tr>
             @foreach($user as $u)
                 <tr>
+                    <td>{{ $u->id }}</td>
                     <td>{{ $u->name }}</td>
                     <td>{{ $u->email }}</td>
                     <td>
