@@ -11,7 +11,7 @@ class UsuarioAdminController extends Controller
 {
     public function index()
     {
-        return view('usuario.index')->with('user', User::paginate(5));
+        return view('usuario.index')->with('user', User::where('IsAdmin',1)->paginate(10));
     }
 
     public function create()
@@ -24,6 +24,7 @@ class UsuarioAdminController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'IsAdmin' => 1,
             'password' => Hash::make($request->password)
         ]);
         session() -> flash('valido', "Usuario foi adicionada com sucesso!");

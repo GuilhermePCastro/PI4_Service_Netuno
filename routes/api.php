@@ -75,7 +75,9 @@ Route::post('/user', [ApiUserController::class, 'store']);
 //Produto
 Route::get('/produto', [ApiProdutoController::class, 'index']);
 Route::get('/produto/destaques', [ApiProdutoController::class, 'destaques']);
+Route::get('/produto/filtro', [ApiProdutoController::class, 'filtro']);
 Route::get('/produto/{produto}', [ApiProdutoController::class, 'show']);
+
 
 //Categoria
 Route::get('/categoria', [ApiCategoriaController::class, 'index']);

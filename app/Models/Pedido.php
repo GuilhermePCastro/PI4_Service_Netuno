@@ -51,13 +51,13 @@ class Pedido extends Model
 
     public static function quantidadePedidos(){
 
-        $pedidos = Pedido::where('created_at', '>', date("d/m/Y",strtotime(date("Y-m-d")."-7 day")))->get();
+        $pedidos = Pedido::where('created_at', '>', date("Y-m-d",strtotime(date("Y-m-d")."-7 day")))->get();
         return $pedidos->count();
     }
 
     public static function valorPedidos(){
 
-        $pedidos = Pedido::where('created_at', '>', date("d/m/Y",strtotime(date("Y-m-d")."-7 day")))->get();
+        $pedidos = Pedido::where('created_at', '>', date("Y-m-d",strtotime(date("Y-m-d")."-7 day")))->get();
 
         $total = 0;
         foreach($pedidos as $pedido){

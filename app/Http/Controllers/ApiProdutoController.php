@@ -27,5 +27,17 @@ class ApiProdutoController extends Controller
         return response()->json(Produto::with('tags')->with('categoria')->with('marca')->where('tg_destaque',1)->get());
     }
 
+    public function filtro(Request $request){
+
+        $produtos = Produto::where('id', '>', '0');
+
+        if($request->nome != ''){
+            $produtos = $produtos->where('ds_nome','like', '%' . $request->nome . '%');
+        }
+
+        return response()->json($produtos->with('tags')->with('categoria')->with('marca')->get());
+
+    }
+
 
 }

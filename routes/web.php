@@ -26,7 +26,7 @@ Route::get('/', function () {
 
 
 //Acesso só de quem está logado
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => 'IsAdmin'], function(){
 
     Route::get('/produto', [ProdutoController::class, 'index'])->name('produto.index');
     Route::get('/produto/create', [ProdutoController::class, 'create'])->name('produto.create');

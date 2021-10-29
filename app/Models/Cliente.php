@@ -30,7 +30,7 @@ class Cliente extends Model
 
     public static function quantidadeClientes(){
 
-        $clientes = Cliente::where('created_at', '>', date("d/m/Y",strtotime(date("Y-m-d")."-7 day")))->get();
+        $clientes = Cliente::where('created_at', '>', date("Y-m-d",strtotime(date("Y-m-d")."-7 day")))->get();
         return $clientes->count();
     }
 
