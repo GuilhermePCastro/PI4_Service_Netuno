@@ -21,7 +21,6 @@ class ApiUserController extends Controller
 
         //Token de acesso
         return response()->json([
-            'user' => $user,
             'token' => $user->createToken($request->device)->plainTextToken
         ]);
 
@@ -51,8 +50,7 @@ class ApiUserController extends Controller
 
         if($user){
             return response()->json([
-                'user' => $user,
-                'token' => $user->createToken($request->device)->plainTextToken
+                'user' => $user
             ]);
         }else{
             return response()->json([

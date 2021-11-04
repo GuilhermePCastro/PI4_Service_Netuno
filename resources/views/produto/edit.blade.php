@@ -111,6 +111,12 @@
               Foto Principal
               <input type="file" name='ds_foto'/>
             </label>
+            <div class="inputs-group mb">
+                <label class="input-container input-container-90">
+                Link Foto App
+                <input name="ds_linkfoto" type="text" value="{{ $produto->ds_linkfoto }}"/>
+                </label>
+            </div>
           <label class="input-container mb">
             Descrição
             <textarea name="ds_descricao" id="" cols="30" rows="10">{{ $produto->ds_descricao}}</textarea>

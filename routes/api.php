@@ -31,8 +31,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware' => 'auth:sanctum'], function(){
 
     //User
-    Route::get('/user', [ApiUserController::class, 'show']);
     Route::get('/user/{user}', [ApiUserController::class, 'showUnique']);
+    Route::get('/user', [ApiUserController::class, 'show']);
     Route::delete('/user/{user}', [ApiUserController::class, 'destroy']);
     Route::put('/user/{user}', [ApiUserController::class, 'update']);
 
@@ -64,8 +64,9 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
 });
 
 //User
-Route::post('/login', [ApiUserController::class, 'login']);
 Route::get('/user/index', [ApiUserController::class, 'index']);
+Route::post('/login', [ApiUserController::class, 'login']);
+
 
 
 //Cliente
@@ -75,6 +76,8 @@ Route::post('/user', [ApiUserController::class, 'store']);
 //Produto
 Route::get('/produto', [ApiProdutoController::class, 'index']);
 Route::get('/produto/destaques', [ApiProdutoController::class, 'destaques']);
+Route::get('/produto/lancamentos', [ApiProdutoController::class, 'lancamentos']);
+Route::get('/produto/{produto}/foto', [ApiProdutoController::class, 'foto']);
 Route::get('/produto/filtro', [ApiProdutoController::class, 'filtro']);
 Route::get('/produto/{produto}', [ApiProdutoController::class, 'show']);
 

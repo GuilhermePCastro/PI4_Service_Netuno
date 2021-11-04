@@ -100,10 +100,17 @@
               <input name="ds_material" type="text" required/>
             </label>
           </div>
-            <label class="input-container input-container mb">
+            <label class="input-container input-container-90 mb">
               Foto Principal
               <input type="file" name='ds_foto'/>
             </label>
+            <div class="inputs-group mb">
+                <label class="input-container input-container-90">
+                Link Foto App
+                <input name="ds_linkfoto" type="text"/>
+                </label>
+            </div>
+
             <label class="input-container mb">
                 Descrição
                 <textarea name="ds_descricao" id="" cols="30" rows="10"></textarea>

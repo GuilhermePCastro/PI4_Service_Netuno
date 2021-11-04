@@ -46,6 +46,7 @@ class ProdutoController extends Controller
             'ds_dimensoes'  => $request->ds_dimensoes,
             'ds_peso'       => $request->ds_peso,
             'ds_material'   => $request->ds_material,
+            'ds_linkfoto'   => $request->ds_linkfoto,
             'ds_foto'       => $foto1
 
         ]);
@@ -94,6 +95,7 @@ class ProdutoController extends Controller
             'ds_dimensoes'  => $request->ds_dimensoes,
             'ds_peso'       => $request->ds_peso,
             'ds_material'   => $request->ds_material,
+            'ds_linkfoto'   => $request->ds_linkfoto,
             'ds_foto'       => $foto1
 
         ]);

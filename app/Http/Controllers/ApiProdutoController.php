@@ -27,6 +27,11 @@ class ApiProdutoController extends Controller
         return response()->json(Produto::with('tags')->with('categoria')->with('marca')->where('tg_destaque',1)->get());
     }
 
+    public function lancamentos()
+    {
+        return response()->json(Produto::OrderBy('created_at','desc')->with('tags')->with('categoria')->with('marca')->take(4)->get());
+    }
+
     public function filtro(Request $request){
 
         $produtos = Produto::where('id', '>', '0');
