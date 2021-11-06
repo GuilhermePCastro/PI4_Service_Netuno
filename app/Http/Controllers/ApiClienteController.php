@@ -71,7 +71,7 @@ class ApiClienteController extends Controller
     public function pedidos(Cliente $cliente)
     {
         //$cliente = Cliente::where('user_id', auth('sanctum')->user()->id)->first();
-        return response()->json($cliente->pedidos()->get());
+        return response()->json($cliente->pedidos());
     }
 
 

@@ -21,7 +21,7 @@ class Cliente extends Model
     }
 
     public function pedidos(){
-        return $this->hasMany(Pedido::class);
+       return Pedido::where('cliente_id','=', auth()->user()->cliente()->id)->orderBy('id','desc')->get();
     }
 
     public function ult5pedidos(){
