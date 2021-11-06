@@ -65,7 +65,7 @@ class ApiClienteController extends Controller
     public function enderecos(Cliente $cliente)
     {
         //$cliente = Cliente::where('user_id', auth('sanctum')->user()->id)->first();
-        return response()->json($cliente->enderecos()->get());
+        return response()->json($cliente->enderecos()->first());
     }
 
     public function pedidos(Cliente $cliente)
