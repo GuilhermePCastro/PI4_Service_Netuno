@@ -70,6 +70,22 @@ class ApiCarrinhoController extends Controller
         }
     }
 
+    public function delete(Produto $produto){
+
+        //Verificando se já existe o item e o cliente no carrinho
+        $cliente = Cliente::where('user_id', auth('sanctum')->user()->id)->first();
+        $item = Carrinho::where([
+                     ['produto_id', '=', $produto->id],
+                     ['cliente_id', '=', $cliente->id],
+                 ])->first();
+
+        if($item){
+             //Deletando o item do carrinho
+             $item->delete();
+             return response()->json($item);
+        }
+     }
+
     public function show(){
 
         $cliente = Cliente::where('user_id', auth('sanctum')->user()->id)->first();
