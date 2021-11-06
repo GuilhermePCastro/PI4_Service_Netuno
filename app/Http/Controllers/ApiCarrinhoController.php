@@ -86,14 +86,12 @@ class ApiCarrinhoController extends Controller
         }
      }
 
-    public function show(){
-
-        $cliente = Cliente::where('user_id', auth('sanctum')->user()->id)->first();
+    public function show(Cliente $cliente){
         $carrinho = Carrinho::where('cliente_id', '=' , $cliente->id)->get();
 
         return response()->json([
-            "Quantidade" => Carrinho::quantidade(),
-            "Valor" => number_format(Carrinho::totalCarrinho(), 2, ',', '.'),
+            "quantidade" => Carrinho::quantidade(),
+            "valor" => Carrinho::totalCarrinho(),
             "itens" => $carrinho
         ]);
 
