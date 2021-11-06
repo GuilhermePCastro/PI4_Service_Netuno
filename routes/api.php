@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::get('/user', [ApiUserController::class, 'show']);
     Route::delete('/user/{user}', [ApiUserController::class, 'destroy']);
     Route::put('/user/{user}', [ApiUserController::class, 'update']);
+    Route::get('/user/{user}/cliente', [ApiUserController::class, 'cliente']);
 
     //Cliente
     Route::post('/cliente', [ApiClienteController::class, 'store']);

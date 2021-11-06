@@ -115,4 +115,9 @@ class ApiUserController extends Controller
         $user->delete();
         return response()->json($user);
     }
+
+    public function cliente(User $user){
+
+        return response()->json($user->cliente());
+    }
 }
