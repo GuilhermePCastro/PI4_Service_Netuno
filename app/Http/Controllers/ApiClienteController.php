@@ -17,11 +17,11 @@ class ApiClienteController extends Controller
     public function store(Request $request){
 
         $cliente = Cliente::create([
-            'user_id'   => auth('sanctum')->user()->id,
+            'user_id'   => $request->user_id,
             'ds_nome'   => $request->ds_nome,
             'ds_cpf'    => $request->ds_cpf,
             'ds_celular'=> $request->ds_celular,
-            'ds_email'  => auth('sanctum')->user()->email
+            'ds_email'  => $request->ds_email
         ]);
 
         return response()->json($cliente);

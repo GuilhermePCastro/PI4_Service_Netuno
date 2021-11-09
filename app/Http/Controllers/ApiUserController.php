@@ -32,19 +32,18 @@ class ApiUserController extends Controller
 
     public function store(Request $request){
 
-        //Validando os dados
+        /*Validando os dados
         $request->validate([
             'email' => 'required|email|unique:users',
             'name' => 'required|max:255',
             'password' => 'required|min:8',
             'device' => 'required'
-        ]);
+        ]);*/
 
         $user = User::create([
             'email' => $request->email,
             'name' => $request->name,
-            'password' => Hash::make($request->password),
-            'device' => $request->device
+            'password' => Hash::make($request->password)
         ]);
 
 
@@ -87,7 +86,6 @@ class ApiUserController extends Controller
             'email' => $request->email,
             'name' => $request->name,
             'password' => Hash::make($request->password),
-            'device' => $request->device
         ]);
 
         if($user){

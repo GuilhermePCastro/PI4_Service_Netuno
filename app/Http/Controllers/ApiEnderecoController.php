@@ -15,7 +15,6 @@ class ApiEnderecoController extends Controller
 
     public function store(Request $request){
 
-        $cliente = Cliente::where('user_id', auth('sanctum')->user()->id)->first();
         $endereco = Endereco::create([
             'ds_endereco'   => $request->ds_endereco,
             'ds_numero'     => $request->ds_numero,
@@ -24,7 +23,7 @@ class ApiEnderecoController extends Controller
             'ds_uf'         => $request->ds_uf,
             'ds_cep'        => $request->ds_cep,
             'ds_complemento'=> $request->ds_complemento,
-            'cliente_id'    => $cliente->id
+            'cliente_id'    => $request->cliente_id
         ]);
 
         return response()->json($endereco);
