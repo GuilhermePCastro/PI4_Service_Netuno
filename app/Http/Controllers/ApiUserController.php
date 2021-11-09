@@ -49,14 +49,7 @@ class ApiUserController extends Controller
 
 
         if($user){
-            return response()->json([
-                'user' => $user
-            ]);
-        }else{
-            return response()->json([
-                'error' => 'Erro ao cadastrar usuário!',
-
-            ],401);
+            return response()->json($user);
         }
     }
 

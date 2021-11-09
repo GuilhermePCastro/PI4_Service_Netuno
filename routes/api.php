@@ -38,7 +38,6 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::get('/user/{user}/cliente', [ApiUserController::class, 'cliente']);
 
     //Cliente
-    Route::post('/cliente', [ApiClienteController::class, 'store']);
     Route::get('/cliente/{cliente}', [ApiClienteController::class, 'show']);
     Route::delete('/cliente/{cliente}', [ApiClienteController::class, 'destroy']);
     Route::put('/cliente/{cliente}', [ApiClienteController::class, 'update']);
@@ -48,7 +47,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     //Endereco
     Route::get('/endereco/index', [ApiEnderecoController::class, 'index']);
     Route::get('/endereco/{endereco}', [ApiEnderecoController::class, 'show']);
-    Route::post('/endereco', [ApiEnderecoController::class, 'store']);
+
     Route::delete('/endereco/{endereco}', [ApiEnderecoController::class, 'destroy']);
     Route::put('/endereco/{endereco}', [ApiEnderecoController::class, 'update']);
 
@@ -74,6 +73,8 @@ Route::post('/login', [ApiUserController::class, 'login']);
 //Cliente
 Route::get('/cliente/index', [ApiClienteController::class, 'index']);
 Route::post('/user', [ApiUserController::class, 'store']);
+Route::post('/cliente', [ApiClienteController::class, 'store']);
+Route::post('/endereco', [ApiEnderecoController::class, 'store']);
 
 //Produto
 Route::get('/produto', [ApiProdutoController::class, 'index']);
