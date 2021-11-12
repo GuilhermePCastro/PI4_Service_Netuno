@@ -9,7 +9,7 @@ class Cliente extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id','ds_nome', 'ds_cpf', 'ds_celular', 'ds_email'];
+    protected $fillable = ['user_id','ds_nome', 'ds_cpf', 'ds_celular', 'ds_email', 'ds_fotoperfil'];
     protected $table = 'tb_cliente';
 
     public function usuario(){

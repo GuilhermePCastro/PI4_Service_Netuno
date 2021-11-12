@@ -21,7 +21,8 @@ class ApiClienteController extends Controller
             'ds_nome'   => $request->ds_nome,
             'ds_cpf'    => $request->ds_cpf,
             'ds_celular'=> $request->ds_celular,
-            'ds_email'  => $request->ds_email
+            'ds_email'  => $request->ds_email,
+            'ds_fotoperfil'  => $request->ds_fotoperfil
         ]);
 
         return response()->json($cliente);
@@ -40,7 +41,8 @@ class ApiClienteController extends Controller
             'ds_nome'   => $request->ds_nome,
             'ds_cpf'    => $request->ds_cpf,
             'ds_celular'=> $request->ds_celular,
-            'ds_email'  => auth('sanctum')->user()->email
+            'ds_email'  => auth('sanctum')->user()->email,
+            'ds_fotoperfil'  => $request->ds_fotoperfil
         ]);
 
         //Alterando os dados de usuário
