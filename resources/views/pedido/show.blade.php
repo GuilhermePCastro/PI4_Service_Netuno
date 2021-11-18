@@ -146,7 +146,7 @@
           <div class="inputs-group mb input-container input-container-40 mb-5">
                 <select name="ds_status">
                     <option value="Em Aberto" @if($pedido->ds_status == 'Em Aberto') selected @endif>Em Aberto</option>
-                    <option value="Em Atendimento" @if($pedido->ds_status == 'Em Atendimento') selected @endif>Em Atendiemnto</option>
+                    <option value="Em Atendimento" @if($pedido->ds_status == 'Em Atendimento') selected @endif>Em Atendimento</option>
                     <option value="Em Separação" @if($pedido->ds_status == 'Em Separação') selected @endif>Em Separação</option>
                     <option value="Enviado" @if($pedido->ds_status == 'Enviado') selected @endif>Enviado</option>
                     <option value="Finalizado" @if($pedido->ds_status == 'Finalizado') selected @endif>Finalizado</option>
