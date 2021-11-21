@@ -71,21 +71,19 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th>CEP</th>
                         <th>Endereço</th>
-                        <th>Bairro</th>
                         <th>Cidade</th>
                         <th>UF</th>
-                        <th>CEP</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($cliente->enderecos()->get() as $endereco)
                         <tr>
+                            <td>{{ $endereco->ds_cep }}</td>
                             <td>{{ $endereco->ds_endereco }}, {{ $endereco->ds_numero }}</td>
-                            <td>{{ $endereco->ds_bairro }}</td>
                             <td>{{ $endereco->ds_cidade }}</td>
                             <td>{{ $endereco->ds_uf }}</td>
-                            <td>{{ $endereco->ds_cep }}</td>
                         </tr>
                     @endforeach
                 </tbody>
