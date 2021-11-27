@@ -67,7 +67,7 @@
               <input name="ds_cep" type="text" value="{{ $pedido->ds_cep }}" disabled/>
             </label>
             <label class="input-container input-container-70">
-              Endereço
+              Endereço de Entrega
               <input name="ds_endereco" value="{{ $pedido->ds_endereco }}, {{ $pedido->ds_numero }}" type="text" disabled/>
             </label>
           </div>

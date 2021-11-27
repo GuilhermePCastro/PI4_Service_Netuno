@@ -55,7 +55,7 @@
         <div class="col-4">
                 <div class="card" style="height: 15rem;">
                     <div class="card-body">
-                        <h3 class="card-title h5">Quantidade de Pedidos Pendetes</h3>
+                        <h3 class="card-title h5">Quantidade de Pedidos Pendentes</h3>
                         <h4 class="card-subtitle h6 mb-2 text-muted">Sem enviar</h4>
                         <h5 class="h1 fs-1 text-center mb-3" style="font-size: 70px;">{{ App\Models\Pedido::qtPedidosPendetes() }}</h5>
                     </div>
